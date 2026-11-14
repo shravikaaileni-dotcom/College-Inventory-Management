@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item | CampusStock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <span class="logo-icon">C</span>
+            <div>
+                <h2>CampusStock</h2>
+                <p>Inventory System</p>
+            </div>
+        </div>
+
+        <p class="menu-heading">MAIN MENU</p>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html">▦ Dashboard</a>
+            <a href="manage-items.html">📦 Manage Items</a>
+            <a href="add-item.html" class="active">＋ Add New Item</a>
+            <a href="issue-return.html">🔄 Issue & Return</a>
+            <a href="reports.html">📊 Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="../index.html">← Back to Home</a>
+            <a href="../login.html">↪ Logout</a>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+            <div>
+                <h1>Add New Inventory Item</h1>
+                <p>Register a new item in the college inventory.</p>
+            </div>
+            <div class="admin-profile">
+                <div class="profile-icon">A</div>
+                <div>
+                    <h4>Administrator</h4>
+                    <p>Department Admin</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="dashboard-panel item-form-panel">
+            <div class="panel-heading">
+                <div>
+                    <h3>Item Information</h3>
+                    <p>Enter the details of the inventory item below.</p>
+                </div>
+            </div>
+
+            <form id="addItemForm">
+
+                <div class="item-form-grid">
+
+                    <div class="form-group">
+                        <label for="itemName">Item Name *</label>
+                        <input type="text" id="itemName"
+                               placeholder="Example: Laptop" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemCode">Item Code *</label>
+                        <input type="text" id="itemCode"
+                               placeholder="Example: ITM001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" required>
+                            <option value="">Select category</option>
+                            <option>Computer Equipment</option>
+                            <option>Laboratory Equipment</option>
+                            <option>Furniture</option>
+                            <option>Electronics</option>
+                            <option>Stationery</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Total Quantity *</label>
+                        <input type="number" id="quantity"
+                               min="1" placeholder="Enter quantity" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Department / Location *</label>
+                        <input type="text" id="location"
+                               placeholder="Example: CSE Lab" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="minStock">Minimum Stock Level *</label>
+                        <input type="number" id="minStock"
+                               min="0" value="5" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="purchaseDate">Purchase Date</label>
+                        <input type="date" id="purchaseDate">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="description">Description</label>
+                        <textarea id="description" rows="4"
+                                  placeholder="Enter item details..."></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="cancel-btn">Clear Form</button>
+                    <button type="submit" class="save-btn">＋ Save Item</button>
+                </div>
+
+                <p id="formMessage" class="form-message"></p>
+
+            </form>
+        </section>
+
+    </main>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

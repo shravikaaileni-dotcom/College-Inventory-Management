@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Items | CampusStock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <h2>CampusStock</h2>
+            <p>Inventory Management</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="manage-items.html" class="active">Manage Items</a>
+            <a href="add-item.html">Add New Item</a>
+            <a href="issue-return.html">Issue & Return</a>
+            <a href="reports.html">Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="../index.html">Back to Home</a>
+            <a href="../login.html">Logout</a>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+        <header class="dashboard-header">
+            <div>
+                <h1>Manage Items</h1>
+                <p>View and manage your inventory items.</p>
+            </div>
+            <a href="add-item.html" class="save-btn">+ Add New Item</a>
+        </header>
+
+        <section class="dashboard-panel">
+            <div class="panel-heading">
+                <h2>Inventory List</h2>
+                <span id="itemCount">0 Items</span>
+            </div>
+
+            <div class="inventory-toolbar">
+                <input
+                    type="text"
+                    id="searchItem"
+                    placeholder="Search by item name or code..."
+                >
+
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="Computer Equipment">Computer Equipment</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Lab Equipment">Lab Equipment</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Stationery">Stationery</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Item Code</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemsTableBody">
+                        <!-- Items are displayed using JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage" class="empty-message" hidden>
+                No inventory items found.
+            </p>
+        </section>
+    </main>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

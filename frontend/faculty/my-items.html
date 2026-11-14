@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Issued Items | CampusStock</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #263445;
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            min-width: 250px;
+            background: #123b50;
+            color: white;
+            padding: 25px 18px;
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 30px;
+        }
+
+        .sidebar nav a {
+            color: white;
+            text-decoration: none;
+            padding: 13px;
+            border-radius: 7px;
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            background: #1d7580;
+        }
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
+            padding: 30px;
+        }
+
+        h1, h2 { color: #123b50; }
+
+        .items-panel {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 25px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            border: 1px solid #ccd6df;
+            border-radius: 7px;
+            margin: 15px 0 20px;
+            font-size: 14px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #e3eaf0;
+        }
+
+        th {
+            background: #eaf2f5;
+            color: #123b50;
+        }
+
+        .issued-status {
+            color: #d97706;
+            font-weight: bold;
+        }
+
+        .returned-status {
+            color: #16834a;
+            font-weight: bold;
+        }
+
+        .empty-message {
+            text-align: center;
+            color: #64748b;
+            padding: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .dashboard-container { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .main-content { padding: 18px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <aside class="sidebar">
+        <h2>📦 CampusStock</h2>
+        <p>Faculty Portal</p>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="inventory.html">Browse Inventory</a>
+            <a href="my-items.html" class="active">My Issued Items</a>
+            <a href="../index.html">Back to Home</a>
+            <a href="../login.html">Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <h1>My Issued Items</h1>
+        <p>Track equipment issued to you and its return status.</p>
+
+        <section class="items-panel">
+
+            <h2>Issue History</h2>
+
+            <input
+                type="text"
+                id="myItemsSearch"
+                class="search-box"
+                placeholder="Search by item name or borrower name..."
+            >
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Borrower</th>
+                            <th>Quantity</th>
+                            <th>Issue Date</th>
+                            <th>Return Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="myItemsTableBody"></tbody>
+                </table>
+            </div>
+
+            <p id="myItemsEmptyMessage" class="empty-message"
+               style="display:none;">
+                No issued item records found.
+            </p>
+
+        </section>
+
+    </main>
+</div>
+
+<script src="../js/faculty.js"></script>
+
+</body>
+</html>
