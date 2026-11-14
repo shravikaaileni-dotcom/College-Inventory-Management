@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CampusStock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-body">
+
+    <div class="auth-container">
+        <div class="auth-info">
+            <a href="index.html" class="back-home">← Back to Home</a>
+            <div class="auth-brand">
+                <span class="logo-icon">C</span>
+                <h2>CampusStock</h2>
+            </div>
+
+            <h1>Welcome Back!</h1>
+            <p>Access your college inventory dashboard and manage your resources efficiently.</p>
+
+            <div class="auth-benefits">
+                <p>✓ Centralized inventory management</p>
+                <p>✓ Easy issue and return tracking</p>
+                <p>✓ Organized stock information</p>
+            </div>
+        </div>
+
+        <div class="auth-form-section">
+            <div class="auth-form">
+                <h2>Sign In</h2>
+                <p class="form-subtitle">Enter your account details to continue.</p>
+
+                <form id="loginForm">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+
+                    <label for="role">Login As</label>
+                    <select id="role" required>
+                        <option value="">Select your role</option>
+                        <option value="admin">Department Admin</option>
+                        <option value="faculty">Faculty / Lab Assistant</option>
+                        <option value="student">Student</option>
+                    </select>
+
+                    <button type="submit" class="auth-button">Sign In →</button>
+                </form>
+
+                <p class="auth-switch">
+                    Don't have an account?
+                    <a href="register.html">Create Account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

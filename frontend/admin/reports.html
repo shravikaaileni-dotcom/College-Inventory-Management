@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | CampusStock</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body class="dashboard-body">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <span class="logo-icon">C</span>
+            <div>
+                <h2>CampusStock</h2>
+                <p>Inventory System</p>
+            </div>
+        </div>
+
+        <p class="menu-heading">MAIN MENU</p>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html">▦ Dashboard</a>
+            <a href="manage-items.html">📦 Manage Items</a>
+            <a href="add-item.html">＋ Add New Item</a>
+            <a href="issue-return.html">🔄 Issue & Return</a>
+            <a href="reports.html" class="active">📊 Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="../index.html">← Back to Home</a>
+            <a href="../login.html">↪ Logout</a>
+        </div>
+
+    </aside>
+
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+                <h1>Inventory Reports</h1>
+                <p>Monitor inventory statistics and transactions.</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="profile-icon">A</div>
+                <div>
+                    <h4>Administrator</h4>
+                    <p>Department Admin</p>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- SUMMARY CARDS -->
+
+        <section class="report-cards">
+
+            <div class="report-card">
+                <p>Total Item Types</p>
+                <h2 id="reportTotalItems">0</h2>
+            </div>
+
+            <div class="report-card">
+                <p>Available Quantity</p>
+                <h2 id="reportAvailable">0</h2>
+            </div>
+
+            <div class="report-card">
+                <p>Issued Quantity</p>
+                <h2 id="reportIssued">0</h2>
+            </div>
+
+            <div class="report-card">
+                <p>Low Stock Items</p>
+                <h2 id="reportLowStock">0</h2>
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORY CHART -->
+
+        <section class="dashboard-panel report-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h3>Inventory by Category</h3>
+                    <p>Distribution of inventory items by category.</p>
+                </div>
+            </div>
+
+            <div class="report-chart-container">
+                <canvas id="reportCategoryChart"></canvas>
+            </div>
+
+        </section>
+
+
+        <!-- TRANSACTION SUMMARY -->
+
+        <section class="dashboard-panel report-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h3>Transaction Summary</h3>
+                    <p>Overview of issued and returned records.</p>
+                </div>
+            </div>
+
+            <div class="report-summary-grid">
+
+                <div>
+                    <p>Total Issue Records</p>
+                    <h2 id="totalIssueRecords">0</h2>
+                </div>
+
+                <div>
+                    <p>Currently Active Issues</p>
+                    <h2 id="activeIssueRecords">0</h2>
+                </div>
+
+                <div>
+                    <p>Completed Returns</p>
+                    <h2 id="returnedIssueRecords">0</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOW STOCK TABLE -->
+
+        <section class="dashboard-panel report-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h3>Low Stock Report</h3>
+                    <p>Items that have reached their minimum stock level.</p>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Item Code</th>
+                            <th>Available Quantity</th>
+                            <th>Minimum Stock</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lowStockTableBody"></tbody>
+
+                </table>
+
+            </div>
+
+            <p id="lowStockEmpty" class="empty-message" hidden>
+                No low-stock items found.
+            </p>
+
+        </section>
+
+
+        <!-- DOWNLOAD REPORT -->
+
+        <section class="dashboard-panel report-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h3>Export Reports</h3>
+                    <p>Download your current inventory report.</p>
+                </div>
+            </div>
+
+            <button type="button" class="save-btn" id="downloadReport">
+                Download Inventory CSV
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/admin.js"></script>
+
+</body>
+</html>

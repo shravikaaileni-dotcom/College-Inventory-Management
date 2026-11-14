@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue & Return | CampusStock</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body class="dashboard-body">
+
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <span class="logo-icon">C</span>
+            <div>
+                <h2>CampusStock</h2>
+                <p>Inventory System</p>
+            </div>
+        </div>
+
+        <p class="menu-heading">MAIN MENU</p>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html">▦ Dashboard</a>
+            <a href="manage-items.html">📦 Manage Items</a>
+            <a href="add-item.html">＋ Add New Item</a>
+            <a href="issue-return.html" class="active">🔄 Issue & Return</a>
+            <a href="reports.html">📊 Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="../index.html">← Back to Home</a>
+            <a href="../login.html">↪ Logout</a>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+            <div>
+                <h1>Issue & Return</h1>
+                <p>Manage inventory issue and return records.</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="profile-icon">A</div>
+                <div>
+                    <h4>Administrator</h4>
+                    <p>Department Admin</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- ISSUE ITEM FORM -->
+
+        <section class="dashboard-panel issue-form-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h3>Issue an Item</h3>
+                    <p>Enter the borrower and item details.</p>
+                </div>
+            </div>
+
+            <form id="issueItemForm">
+
+                <div class="item-form-grid">
+
+                    <div class="form-group">
+                        <label for="borrowerName">Borrower Name *</label>
+                        <input type="text" id="borrowerName"
+                               placeholder="Enter borrower name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="borrowerEmail">Borrower Email *</label>
+                        <input type="email" id="borrowerEmail"
+                               placeholder="Enter email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="borrowerRole">Borrower Role *</label>
+                        <select id="borrowerRole" required>
+                            <option value="">Select role</option>
+                            <option value="Student">Student</option>
+                            <option value="Faculty">Faculty</option>
+                            <option value="Lab Assistant">Lab Assistant</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueItem">Select Item *</label>
+                        <select id="issueItem" required>
+                            <option value="">Select inventory item</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueQuantity">Quantity *</label>
+                        <input type="number" id="issueQuantity"
+                               min="1" value="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueDate">Issue Date *</label>
+                        <input type="date" id="issueDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="returnDate">Expected Return Date *</label>
+                        <input type="date" id="returnDate" required>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="cancel-btn">
+                        Clear Form
+                    </button>
+
+                    <button type="submit" class="save-btn">
+                        Issue Item
+                    </button>
+                </div>
+
+                <p id="issueMessage" class="form-message"></p>
+
+            </form>
+        </section>
+
+
+        <!-- ISSUE HISTORY -->
+
+        <section class="dashboard-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <h3>Issue & Return History</h3>
+                    <p>Track all inventory transactions.</p>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Borrower</th>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Issue Date</th>
+                            <th>Expected Return</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="issueTableBody">
+                    </tbody>
+                </table>
+
+            </div>
+
+            <p id="issueEmptyMessage" class="empty-message" hidden>
+                No issue records found.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="../js/admin.js"></script>
+
+</body>
+</html>

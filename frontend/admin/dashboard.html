@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | CampusStock</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <span class="logo-icon">C</span>
+            <div>
+                <h2>CampusStock</h2>
+                <p>Inventory System</p>
+            </div>
+        </div>
+
+        <p class="menu-heading">MAIN MENU</p>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="active">▦ Dashboard</a>
+            <a href="manage-items.html">📦 Manage Items</a>
+            <a href="add-item.html">＋ Add New Item</a>
+            <a href="issue-return.html">🔄 Issue & Return</a>
+            <a href="reports.html">📊 Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="../index.html">← Back to Home</a>
+            <a href="../login.html">↪ Logout</a>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+            <div>
+                <h1>Dashboard Overview</h1>
+                <p>Welcome to your college inventory management panel.</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="profile-icon">A</div>
+                <div>
+                    <h4>Administrator</h4>
+                    <p>Department Admin</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="dashboard-welcome">
+            <div>
+                <h2>Welcome, Admin!</h2>
+                <p>Here's what's happening with your inventory today.</p>
+            </div>
+            <div class="welcome-date" id="currentDate"></div>
+        </section>
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Total Items</span>
+                    <div class="stat-symbol blue">📦</div>
+                </div>
+                <h2>1,250</h2>
+                <p>Registered inventory items</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Available Items</span>
+                    <div class="stat-symbol green">✓</div>
+                </div>
+                <h2>890</h2>
+                <p>Currently available</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Issued Items</span>
+                    <div class="stat-symbol orange">↗</div>
+                </div>
+                <h2>320</h2>
+                <p>Currently issued</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Low Stock</span>
+                    <div class="stat-symbol red">!</div>
+                </div>
+                <h2>40</h2>
+                <p>Items needing attention</p>
+            </div>
+
+        </section>
+
+        <section class="dashboard-content-grid">
+
+            <div class="dashboard-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3>Inventory Distribution</h3>
+                        <p>Overview of item availability</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="inventoryChart"></canvas>
+                </div>
+            </div>
+
+            <div class="dashboard-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3>Stock Alerts</h3>
+                        <p>Items requiring attention</p>
+                    </div>
+                </div>
+
+                <div class="alert-item">
+                    <div class="alert-icon">⚠</div>
+                    <div>
+                        <h4>Computer Mouse</h4>
+                        <p>Only 4 items available</p>
+                    </div>
+                    <span class="alert-label">Low</span>
+                </div>
+
+                <div class="alert-item">
+                    <div class="alert-icon">⚠</div>
+                    <div>
+                        <h4>Keyboard</h4>
+                        <p>Only 5 items available</p>
+                    </div>
+                    <span class="alert-label">Low</span>
+                </div>
+
+                <div class="alert-item">
+                    <div class="alert-icon">⚠</div>
+                    <div>
+                        <h4>Projector</h4>
+                        <p>Only 2 items available</p>
+                    </div>
+                    <span class="alert-label">Low</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="dashboard-panel recent-panel">
+            <div class="panel-heading">
+                <div>
+                    <h3>Recent Transactions</h3>
+                    <p>Latest inventory issue and return records</p>
+                </div>
+                <a href="issue-return.html">View All</a>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>User</th>
+                            <th>Transaction</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>Rahul Kumar</td>
+                            <td>Issue</td>
+                            <td>14 Nov 2026</td>
+                            <td><span class="badge-issued">Issued</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Projector</td>
+                            <td>Priya Sharma</td>
+                            <td>Return</td>
+                            <td>13 Nov 2026</td>
+                            <td><span class="badge-returned">Returned</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Keyboard</td>
+                            <td>Arjun Reddy</td>
+                            <td>Issue</td>
+                            <td>13 Nov 2026</td>
+                            <td><span class="badge-issued">Issued</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
